@@ -1,36 +1,19 @@
-<?php
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="author" content="IgorF-Santos">
+        <meta name="description" content="Introdução a PHP">
+        <meta name="viewport" content="width=device.width, initial-scale=1">
+    </head>
 
-$category = [];
-$category[0] = 'infantil';
-$category[1] = 'adolescente';
-$category[2] = 'adulto';
+    <body>
+        <p>FORMULÁRIO PARA INSCRIÇÃO DE COMPETIDORES</p>
 
-// $name = '';
-// $idade = 0;
-
-function classifyCategory($name, $idade, $category) {
-    if($idade >= 6 && $idade <= 12){
-        for($i = 0; $i <= count($category); $i++){
-            if($category[$i] == 'infantil'){
-                print_r('A categoria de ' .$name .' é ' .$category[$i]);
-            }
-        }       
-    }
-    else if($idade >= 13 && $idade <= 18){
-        for($i = 0; $i <= count($category); $i++){
-            if($category[$i] === 'adolescente'){
-                print_r('A categoria de ' .$name .' é ' .$category[$i]);
-            }
-        }
-    }
-    else if($idade > 18){
-        for($i = 0; $i <= count($category); $i++){
-            if($category[$i] == 'adulto'){
-                print_r('A categoria de ' .$name .' é ' .$category[$i]);
-            }
-        }
-    }
-}
-
-
-classifyCategory('Eduardo', 19, $category);
+        <form action="./scripts/script.php" method="post">
+            <p>Your name: <input type="text" name="nome"/></p>
+            <p>Your age: <input type="number" name="idade"/></p>
+            <p><input type="submit" value="Enviar dados"/></p>
+        </form>
+    </body>
+</html>
