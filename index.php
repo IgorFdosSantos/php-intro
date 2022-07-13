@@ -1,5 +1,5 @@
 <?php
-    session_start(); // Inicia a sessão HTTP
+    include 'services/session-message.service.php';
 ?>
 
 <!DOCTYPE html>
@@ -14,21 +14,21 @@
     <body>
         <p>FORMULÁRIO PARA INSCRIÇÃO DE COMPETIDORES</p>
 
-        <form action="./scripts/script.php" method="post">
+        <form action="script.php" method="post">
             <?php
-                $errorMessage = isset($_SESSION['Error']) ? $_SESSION['Error'] : '';
+                $errorMessage = getErrorMessage();
                 if(!empty($errorMessage)){
-                    echo $errorMessage;
+                    echo "<p style='color: red'>$errorMessage<p>";
                 }
 
-                $successMessage = isset($_SESSION['Success-Message']) ? $_SESSION['Success-Message'] : '';
+                $successMessage = getSuccessMessage();
                 if(!empty($successMessage)){
-                    echo $successMessage;
+                    echo "<p style='color: green'>$successMessage<p>";                    
                 }
             ?>
 
-            <p>Your name: <input type="text" name="nome"/></p>
-            <p>Your age: <input type="number" name="idade"/></p>
+            <p>Your name: <input type="text" name="name"/></p>
+            <p>Your age: <input type="number" name="age"/></p>
             <p><input type="submit" value="Enviar dados"/></p>
         </form>
     </body>
