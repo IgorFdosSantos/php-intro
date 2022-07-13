@@ -1,13 +1,24 @@
 <?php
     session_start();
 
-    function setErrorMessage(string $message): void {
-        $_SESSION['Error'] = $message;
+    function setNameErrorMessage(string $message): void {
+        $_SESSION['Name-Error'] = $message;
     }
 
-    function getErrorMessage(): ?string{
-        if(isset($_SESSION['Error'])){
-            return $_SESSION['Error'];
+    function getNameErrorMessage(): ?string{
+        if(isset($_SESSION['Name-Error'])){
+            return $_SESSION['Name-Error'];
+        }
+        return null;
+    }
+
+    function setAgeErrorMessage(string $message): void {
+        $_SESSION['Age-Error'] = $message;
+    }
+
+    function getAgeErrorMessage(): ?string{
+        if(isset($_SESSION['Age-Error'])){
+            return $_SESSION['Age-Error'];
         }
         return null;
     }
@@ -24,8 +35,11 @@
     }
 
     function unSetErrorMessage(): void {
-        if(isset($_SESSION['Error'])){
-            unset($_SESSION['Error']);
+        if(isset($_SESSION['Name-Error'])){
+            unset($_SESSION['Name-Error']);
+        }
+        if(isset($_SESSION['Age-Error'])){
+            unset($_SESSION['Age-Error']);
         }
     }
 

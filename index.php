@@ -9,27 +9,45 @@
         <meta name="author" content="IgorF-Santos">
         <meta name="description" content="Introdução a PHP">
         <meta name="viewport" content="width=device.width, initial-scale=1">
+        <link rel="stylesheet" href="./styles.css">
+        <title>Intro PHP</title>
     </head>
 
     <body>
-        <p>FORMULÁRIO PARA INSCRIÇÃO DE COMPETIDORES</p>
+        <label class="title">FORMULÁRIO PARA INSCRIÇÃO DE COMPETIDORES</label>
 
         <form action="script.php" method="post">
-            <?php
-                $errorMessage = getErrorMessage();
-                if(!empty($errorMessage)){
-                    echo "<p style='color: red'>$errorMessage<p>";
-                }
 
-                $successMessage = getSuccessMessage();
-                if(!empty($successMessage)){
-                    echo "<p style='color: green'>$successMessage<p>";                    
-                }
-            ?>
+            <div class="input-container">
+                <p class="form-label">Seu nome: <input class='input' type="text" name="name"/></p>                                 
+                <?php
+                    $errorMessage = getNameErrorMessage();
+                    if(!empty($errorMessage)){
+                        echo "<p class='message' style='color: red'>$errorMessage<p>";
+                    }
+                ?>
+            </div>
 
-            <p>Your name: <input type="text" name="name"/></p>
-            <p>Your age: <input type="number" name="age"/></p>
-            <p><input type="submit" value="Enviar dados"/></p>
+            <div class="input-container">
+                <p class="form-label">Sua idade: <input class='input' type="text" name="age"/></p>                       
+                <?php
+                    $errorMessage = getAgeErrorMessage();
+                    if(!empty($errorMessage)){
+                        echo "<p class='message' style='color: red'>$errorMessage<p>";
+                    }
+                ?>
+            </div>
+
+            <div class="input-container button-cotainer">
+                <input class="button" type="submit" value="Enviar dados"/>
+                <?php                
+                    $successMessage = getSuccessMessage();
+                    if(!empty($successMessage)){
+                        echo "<p class='message' style='color: green'>$successMessage<p>";
+                    }
+                ?>
+            </div>
+
         </form>
     </body>
 </html>
